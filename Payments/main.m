@@ -11,6 +11,7 @@
 #import "AmazonPaymentService.h"
 #import "PaypalPaymentService.h"
 #import "StripePaymentService.h"
+#import "ApplePaymentService.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -20,7 +21,7 @@ int main(int argc, const char * argv[]) {
         // gen random amount between 100 and 1000
         NSInteger dollarValue = arc4random_uniform(900) + 100;
         
-        NSLog(@"Thank you for shopping at Acme.com. Your total today is $%ld. Please select your payment method:\n 1: Amazon 2: Stripe 3: Paypal", (long)dollarValue);
+            NSLog(@"Thank you for shopping at Acme.com. Your total today is $%ld. Please select your payment method:\n 1: Amazon 2: Stripe 3: Paypal 4: Apple", (long)dollarValue);
         
         //get input and convert to int
         char inputChars[255];
@@ -52,13 +53,19 @@ int main(int argc, const char * argv[]) {
                 gateway.paymentDelegate = payPal;
                 [gateway processPaymentAmount:dollarValue];
             }
+                break;
+            case 4: {
+                ApplePaymentService *apple = [ApplePaymentService new];
+                gateway.paymentDelegate = apple;
+                [gateway processPaymentAmount:dollarValue];
+            }
                 
-            default: NSLog(@"Sorry, input not recognized");
+            default: ;
                 break;
         }
         
         
-        [gateway processPaymentAmount:val];
+        //[gateway processPaymentAmount:val];
     }
     }
     return 0;

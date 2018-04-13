@@ -18,4 +18,12 @@
     
 }
 
+-(BOOL)canProcessPayment {
+    int i = arc4random_uniform(2);
+    if (i == 0) {
+        return NO;
+    }
+    return YES;
+}
+
 @end

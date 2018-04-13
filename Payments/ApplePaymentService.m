@@ -1,18 +1,18 @@
 //
-//  AmazonPaymentService.m
+//  ApplePaymentService.m
 //  Payments
 //
 //  Created by Mike Cameron on 2018-04-13.
 //  Copyright © 2018 Mike Cameron. All rights reserved.
 //
 
-#import "AmazonPaymentService.h"
+#import "ApplePaymentService.h"
 
-@implementation AmazonPaymentService
+@implementation ApplePaymentService
 
 -(void)processPaymentAmount:(NSInteger)amount {
     
-    NSLog(@"Payment of $%ld processed by Amazon", amount);
+    NSLog(@"Payment of $%ld processed by Apple", amount);
     
 }
 
@@ -22,7 +22,6 @@
         return NO;
     }
     return YES;
-    
 }
 
 @end
